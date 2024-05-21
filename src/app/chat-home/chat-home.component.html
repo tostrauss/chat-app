@@ -1,0 +1,26 @@
+<div class="chat-home">
+  <div class="search-container"></div>
+  <input type="text" placeholder="Search..." (input)="filterUsers($event)" class="search-bar" />
+  
+  <div class="tabs">
+    <button [class.active]="activeTab === 'users'" (click)="setActiveTab('users')">Users</button>
+    <button [class.active]="activeTab === 'chats'" (click)="setActiveTab('chats')">Chats</button>
+  </div>
+
+  <div *ngIf="activeTab === 'users'" class="user-list">
+    <ul>
+      <li *ngFor="let user of filteredUsers" (click)="goToChatRoom(user)">
+        <img [src]="user.avatar" alt="{{ user.name }}" class="user-avatar" />
+        <div class="user-info">
+          <span class="user-name">{{ user.name }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="activeTab === 'chats'" class="chat-list">
+    <!-- Chat list content goes here -->
+  </div>
+</div>
+
+
