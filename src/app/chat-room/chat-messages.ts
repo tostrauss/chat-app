@@ -1,6 +1,7 @@
 export var chatMessages = [
     {
         message : 'Hi!',
-        time: '12.13'
+        time: '12.13',
+        id: 1
     }
 ]

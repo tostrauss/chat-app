@@ -3,7 +3,7 @@
   <input type="text" placeholder="Search..." (input)="filterUsers($event)" class="search-bar" />
   
   <div class="tabs">
-    <button [class.active]="activeTab === 'users'" (click)="setActiveTab('users')">Users</button>
+    <button [class.active]="activeTab === 'users' || !activeTab" (click)="setActiveTab('users')">Users</button>
     <button [class.active]="activeTab === 'chats'" (click)="setActiveTab('chats')">Chats</button>
   </div>
 
@@ -19,7 +19,7 @@
   </div>
 
   <div *ngIf="activeTab === 'chats'" class="chat-list">
-    <!-- Chat list content goes here -->
+    <app-chat-room></app-chat-room>
   </div>
 </div>
 

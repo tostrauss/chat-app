@@ -18,17 +18,16 @@ export class ChatHomeComponent implements OnInit {
     { id: 2, name: 'Jakob', avatar: 'assets/avatar2.png' },
   ];
 
+  constructor(private router: Router) { }
+
+  ngOnInit(): void { }
+
+  // User Search
   filteredUsers: User[] = [...this.users];
-  activeTab: string = 'users';
-
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {}
-
   filterUsers(event: Event): void {
     const input = event.target as HTMLInputElement;
     const searchTerm = input.value;
-    this.filteredUsers = this.users.filter(user => 
+    this.filteredUsers = this.users.filter(user =>
       user.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }
@@ -37,7 +36,10 @@ export class ChatHomeComponent implements OnInit {
     this.router.navigate(['/chat-room', user.id]);
   }
 
+  // Chat Room View Control
+  activeTab: string = 'users';
   setActiveTab(tab: string): void {
     this.activeTab = tab;
   }
+
 }
