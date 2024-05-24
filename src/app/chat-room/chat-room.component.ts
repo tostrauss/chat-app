@@ -56,5 +56,7 @@ export class ChatRoomComponent implements OnInit {
     event.preventDefault();
     this.sendMessage(input.value);
     input.value = '';
+    // Eventually this will be replaced with an API call
+    // APICALL({message: "this is a message"});
   }
 }
